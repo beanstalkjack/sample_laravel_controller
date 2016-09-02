@@ -13,7 +13,7 @@ class ItemController extends Controller
 
     public function index(Request $request)
     {    //echo 'hello';
-        $items = Item::orderBy('id','DESC')->paginate(5);
+        $items = Item::orderBy('id','DESC')->paginate(10);
         return view('items.index',compact('items'))
             ->with('i', ($request->input('page', 1) - 1) * 5);
     }
